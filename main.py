@@ -116,6 +116,7 @@ class MainPage(QMainWindow, UiMainWindow):
     def url_loading_button_click(self):
         """ Reads input data from url_input and creates an instance of the UrlLoading thread """
         self.listWidget.clear()  # Clear the widget
+        self.videos_dict = dict()  # Clear the dict
         self.url_fetching_data_label.show()  # Show the loading label
         self.url_error_label.hide()          # Hide the error label if the input is a retry
         playlist_url = self.url_input.text()  # Get the input text
