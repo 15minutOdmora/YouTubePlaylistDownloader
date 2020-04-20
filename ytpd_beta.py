@@ -181,7 +181,7 @@ class UiMainWindow(object):
                                             " in the box to the right.\n" +
                                             "- By selecting a video title and pressing the Remove from list" +
                                             " button you can remove\n" +
-                                            "  the vido from the download list.\n" +
+                                            "  the video from the download list.\n" +
                                             "- Then type in the folder name in wich the files will be downloaded.\n" +
                                             "- The download path is automaticly set to Desktop and" +
                                             " can not be changed.\n" +
