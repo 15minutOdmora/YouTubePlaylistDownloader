@@ -1,6 +1,7 @@
 # YouTubePlaylistDownloader
-Simple youtube playlist downloader, downloads videos from a public playlist into .mp4 format videos.
-
+Simple youtube playlist downloader. 
+It is mostly meant to download music as it only downloads videos in a MP4 format.
+Beta version, there are still bugs.
 
 ### Possible Errors (Program not working correctly):
 #### Playlist didn't load up:
