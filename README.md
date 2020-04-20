@@ -23,7 +23,7 @@ If something went wrong (program didn't work correctly) it could be due to an in
 
 
 ## Guide
-![UiPreview](https://github.com/15minutOdmora/YouTubePlaylistDownloader/blob/master/YTPD_UI_Preview.png)
+![UiPreview](https://github.com/15minutOdmora/YouTubePlaylistDownloader/blob/master/YPT_Beta_UI.png)
 
 - Paste/type in the URL of your playlist, check that the playlist is set to public, and then press Load.
 - Loading videos from playlist may take a while, depending on the size of the playlist. Around 5 seconds for a 10 song playlist.
