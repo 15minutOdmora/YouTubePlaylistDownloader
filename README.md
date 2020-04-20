@@ -1,4 +1,4 @@
-# YouTubePlaylistDownloader
+# YouTube Playlist Downloader
 Simple youtube playlist downloader. 
 It's mostly meant to download music as it only downloads videos in a MP4 format.
 
