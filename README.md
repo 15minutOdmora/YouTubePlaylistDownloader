@@ -1,7 +1,10 @@
 # YouTubePlaylistDownloader
 Simple youtube playlist downloader. 
 It is mostly meant to download music as it only downloads videos in a MP4 format.
-\nBeta version, there are still bugs.
+
+Beta version, there are still bugs.
+
+If something went wrong(program didn't work correctly) it coul'd be due to an internal error, but is most likely due to:
 
 ### Possible Errors (Program not working correctly):
 #### Playlist didn't load up:
@@ -17,3 +20,7 @@ It is mostly meant to download music as it only downloads videos in a MP4 format
 - Bad internet connection.
 - Server connection error or unavailable format.
 - Unknown Error
+
+
+## Guide
+
