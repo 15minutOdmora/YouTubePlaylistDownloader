@@ -2,7 +2,7 @@
 Simple youtube playlist downloader. 
 It's mostly meant to download music as it only downloads videos in a MP4 format.
 
-Beta version, there are still bugs.
+Beta version, there are still bugs. Loading bigger playlists may take a few minutes, around 3 minutes for a 200 song playlist.
 
 If something went wrong (program didn't work correctly) it could be due to an internal error, but is most likely due to:
 
