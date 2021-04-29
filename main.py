@@ -1,5 +1,4 @@
 import sys
-import youtube_dl
 from pytube import YouTube
 from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.QtWidgets import *
@@ -30,7 +29,6 @@ class DownloadingVideos(QThread):
     def __init__(self, videos_dict, download_path, parent=None):
         QThread.__init__(self, parent)
         self.videos_dict = videos_dict
-        self.yt_link_starter = "https://www.youtube.com/watch?v="
         self.download_path = download_path
 
     def run(self):
@@ -43,19 +41,24 @@ class DownloadingVideos(QThread):
         failed_download = list()
         downloaded, now_downloading, finished = 0, "", False
         for key, value in self.videos_dict.items():
-            full_link = self.yt_link_starter + self.videos_dict[key]["id"]
             try:
-                video = YouTube(full_link)
-                stream = video.streams.filter(only_audio=True, audio_codec="mp4a.40.2").first()
-                stream.download(self.download_path)
+                stream = value["stream"]
+                print(key, ": stream=", stream)
+                _ = stream.download(output_path=self.download_path)
             except:
                 failed_download.append(key)
+                print("Unable to download: ", key)
             downloaded += 1
             now_downloading = key
             if downloaded == number_of_videos:
                 finished = True
             self.downloadCount.emit(downloaded, number_of_videos, finished, now_downloading)
-        print("Unable to download: ", failed_download)
+        if len(failed_download) == 0:
+            print("Download was successful, all videos downloaded.")
+        else:
+            print("Download wasn't as successfull, these videos weren't downloaded: ")
+            for title in failed_download:
+                print(title)
 
 
 class UrlLoading(QThread):
@@ -68,21 +71,25 @@ class UrlLoading(QThread):
 
     def run(self):
         """ Main function, gets all the playlist videos data, emits the info dict"""
-        ydl_opts = {'ignoreerrors': True, 'quiet': True}
         videos_dict = dict()
         try:
-            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                playlist_dict = ydl.extract_info(self.playlist_link, download=False)
-                for video in playlist_dict['entries']:
-                    try:
-                        title = video.get("title")
-                    except:  # If video title is unavailable don't add it to the dict
-                        continue
-                    videos_dict[title] = dict()
-                    videos_dict[title]["id"] = video.get("id")
-                    videos_dict[title]["duration"] = seconds_to_mmss(video.get("duration"))
+            print("Parsing playlist successful, loading video data...")
+            playlist = Playlist(self.playlist_link)
+            for video in playlist.videos:
+                print(video.title, "... loaded")
+                try:
+                    video.check_availability()
+                except:  # If video is unavailable skip, print error to console
+                    print("Unable to load: ", video.title)
+                    continue
+                videos_dict[video.title] = dict()
+                # Save stream object to directly download
+                videos_dict[video.title]["stream"] = video.streams.filter(only_audio=True, file_extension='mp4').first()
+                videos_dict[video.title]["duration"] = seconds_to_mmss(video.length)
+                # Send data dict after each song is loaded
                 self.countChanged.emit(videos_dict, True)
         except:
+            print("Exception(Playlist/Video Error)... Something went wrong with loading playlist or one of the videos.")
             self.countChanged.emit({}, False)
 
 
