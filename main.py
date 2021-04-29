@@ -1,5 +1,5 @@
 import sys
-from pytube import YouTube
+from pytube import YouTube, Playlist
 from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.QtWidgets import *
 from ytpd_beta import UiMainWindow
