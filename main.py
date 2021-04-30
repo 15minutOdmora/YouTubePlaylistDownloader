@@ -192,9 +192,12 @@ class MainPage(QMainWindow, UiMainWindow):
 
     def select_save_path(self):
         """ Sets the download path to the input one, auto set to YTPD_beta"""
-        self.download_folder_name = self.folder_name_input.text()
+        file = str(QFileDialog.getExistingDirectory(self, "Select Directory"))
+        self.download_full_path = file
+        self.download_path_label.setText("Download path: \n{}".format(self.download_full_path))
+        """self.download_folder_name = self.folder_name_input.text()
         self.download_full_path = self.current_path + "\\" + self.download_folder_name
-        self.download_path_label.setText("Download path: {}".format(self.download_full_path))
+        self.download_path_label.setText("Download path: \n{}".format(self.download_full_path))"""
 
 
 if __name__ == "__main__":
