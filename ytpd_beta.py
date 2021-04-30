@@ -176,7 +176,7 @@ class UiMainWindow(object):
         self.url_fetching_data_label.setText(_translate("MainWindow", "Fetching data ... This might take a while."))
         self.download_folder_name_label.setText(_translate("MainWindow", "Download folder name:"))
         self.folder_name_button.setText(_translate("MainWindow", "Apply"))
-        self.download_path_label.setText(_translate("MainWindow", "Download path: "))
+        self.download_path_label.setText(_translate("MainWindow", "Download path: \n"))
         self.guide_label.setText(_translate("MainWindow", "Guide:\n" +
                                             "- Once the data from the url is loaded, video titles will be displayed" +
                                             " in the box to the right.\n" +
