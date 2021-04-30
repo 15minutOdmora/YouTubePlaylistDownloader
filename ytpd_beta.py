@@ -75,27 +75,28 @@ class UiMainWindow(object):
         self.url_fetching_data_label.setFont(font)
         self.url_fetching_data_label.setObjectName("url_fetching_data_label")
         # Download folder label
-        self.download_folder_name_label = QtWidgets.QLabel(self.centralwidget)
+        """self.download_folder_name_label = QtWidgets.QLabel(self.centralwidget)
         self.download_folder_name_label.setGeometry(QtCore.QRect(10, 280, 161, 21))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.download_folder_name_label.setFont(font)
-        self.download_folder_name_label.setObjectName("download_folder_name_label")
+        self.download_folder_name_label.setObjectName("download_folder_name_label")"""
         # Folder name input box
-        self.folder_name_input = QtWidgets.QLineEdit(self.centralwidget)
+        """self.folder_name_input = QtWidgets.QLineEdit(self.centralwidget)
         self.folder_name_input.setGeometry(QtCore.QRect(170, 280, 211, 20))
-        self.folder_name_input.setObjectName("folder_name_input")
+        self.folder_name_input.setObjectName("folder_name_input")"""
         # Folder name load button
         self.folder_name_button = QtWidgets.QPushButton(self.centralwidget)
-        self.folder_name_button.setGeometry(QtCore.QRect(390, 280, 61, 23))
+        self.folder_name_button.setGeometry(QtCore.QRect(390, 280, 100, 23))
         self.folder_name_button.setObjectName("folder_name_button")
         # Download folder name input box
         self.download_path_label = QtWidgets.QLabel(self.centralwidget)
-        self.download_path_label.setGeometry(QtCore.QRect(10, 320, 450, 16))
+        self.download_path_label.setGeometry(QtCore.QRect(10, 295, 700, 30))
         font = QtGui.QFont()
-        font.setBold(False)
+        font.setPointSize(9)
+        font.setBold(True)
         font.setUnderline(False)
-        font.setWeight(50)
+        # font.setWeight(50)
         self.download_path_label.setFont(font)
         self.download_path_label.setObjectName("download_path_label")
         # Description label
